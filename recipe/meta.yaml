@@ -27,6 +27,10 @@ requirements:
 test:
   requires:
     - pip
+  imports:
+    - faker
+    - faker.utils
+    - faker.providers
   files:
     - run_test.py
   commands:
