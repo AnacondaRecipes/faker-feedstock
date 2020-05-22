@@ -37,6 +37,7 @@ test:
     - pip check
     - PYTHONIOENCODING=utf8 faker --help  # [not win]
     - SET "PYTHONIOENCODING=utf8" & faker --help  # [win]
+
 about:
   home: https://faker.readthedocs.io
   license: MIT
