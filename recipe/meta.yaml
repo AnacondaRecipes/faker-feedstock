@@ -1,4 +1,4 @@
-{% set version = "8.0.0" %}
+{% set version = "8.1.3" %}
 
 package:
   name: faker
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/F/Faker/Faker-{{ version }}.tar.gz
-  sha256: fe4bc214ba448ca52b20a0ee0ed16ded3e1ddce7874f2a95cd321d21e2e388d9
+  sha256: b9259dd6153ef035ca9220b8110c402b836f864764d284885cc0841f6495784c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -17,10 +17,10 @@ build:
 
 requirements:
   host:
-    - python >=3.4
+    - python >=3.6
     - pip
   run:
-    - python >=3.4
+    - python >=3.6
     - python-dateutil >=2.4
     - text-unidecode ==1.3
 
@@ -31,8 +31,7 @@ test:
     - run_test.py
   commands:
     - pip check
-    - PYTHONIOENCODING=utf8 faker --help  # [not win]
-    - SET "PYTHONIOENCODING=utf8" & faker --help  # [win]
+    - python -m faker --help
 about:
   home: https://faker.readthedocs.io
   license: MIT
@@ -45,4 +44,4 @@ about:
 extra:
   recipe-maintainers:
     - pmlandwehr
-    - ocefpaf
+    - ocefpafs
