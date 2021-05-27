@@ -19,12 +19,22 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - setuptools
+    - wheel
   run:
     - python >=3.6
     - python-dateutil >=2.4
     - text-unidecode ==1.3
 
 test:
+  imports:
+    - faker
+    - faker.cli
+    - faker.documentor
+    - faker.exceptions
+    - faker.factory
+    - faker.generator
+    - faker.proxy
   requires:
     - pip
   files:
