@@ -117,7 +117,6 @@ import faker.providers.person.bg_BG
 import faker.providers.person.cs_CZ
 import faker.providers.person.de_AT
 import faker.providers.person.de_DE
-import faker.providers.person.dk_DK
 import faker.providers.person.el_GR
 import faker.providers.person.en
 import faker.providers.person.en_GB
