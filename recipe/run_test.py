@@ -153,7 +153,6 @@ import faker.providers.phone_number.bg_BG
 import faker.providers.phone_number.bs_BA
 import faker.providers.phone_number.cs_CZ
 import faker.providers.phone_number.de_DE
-import faker.providers.phone_number.dk_DK
 import faker.providers.phone_number.el_GR
 import faker.providers.phone_number.en_AU
 import faker.providers.phone_number.en_CA
