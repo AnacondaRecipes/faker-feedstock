@@ -1,4 +1,4 @@
-{% set version = "8.8.1" %}
+{% set version = "15.2.0" %}
 
 package:
   name: faker
@@ -6,23 +6,22 @@ package:
 
 source:
   url: https://pypi.org/packages/source/F/Faker/Faker-{{ version }}.tar.gz
-  sha256: ccd76cd86a49f1042811faaa3a7d1b094fcf8e60a1ec286190417bbb5a3f2f76
+  sha256: f35b9b47fb84d7334645feba0dd87bbf5aba2b617cd83ec8e1b8c6dcd859a710
 
 build:
-  number: 1
-  noarch: python
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - faker = faker.cli:execute_from_command_line
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - setuptools
     - wheel
   run:
-    - python >=3.6
+    - python
     - python-dateutil >=2.4
     - text-unidecode ==1.3
 
