@@ -21,10 +21,6 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - setuptools
-    - wheel
-    - setuptools
-    - wheel
   run:
     - python >=3.6
     - python-dateutil >=2.4
