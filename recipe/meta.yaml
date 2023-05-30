@@ -1,4 +1,4 @@
-{% set version = "8.8.1" %}
+{% set version = "18.9.0" %}
 
 package:
   name: faker
@@ -6,25 +6,25 @@ package:
 
 source:
   url: https://pypi.org/packages/source/F/Faker/Faker-{{ version }}.tar.gz
-  sha256: ccd76cd86a49f1042811faaa3a7d1b094fcf8e60a1ec286190417bbb5a3f2f76
+  sha256: 80a5ea1464556c06b98bf47ea3adc7f33811a1182518d847860b1874080bd3c9
 
 build:
-  number: 1
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+  skip: True # [py<37]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - faker = faker.cli:execute_from_command_line
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - setuptools
     - wheel
   run:
-    - python >=3.6
+    - python
     - python-dateutil >=2.4
-    - text-unidecode ==1.3
+    - typing-extensions >=3.10.0.1 # [py<38]
 
 test:
   imports:
@@ -48,6 +48,11 @@ about:
   license_family: MIT
   license_file: LICENSE.txt
   summary: Faker is a Python package that generates fake data for you
+  description: |
+    Faker is a Python package that generates fake data for you.
+    Whether you need to bootstrap your database, create good-looking XML documents,
+    fill-in your persistence to stress test it, or anonymize data taken from a
+    production service, Faker is for you.
   dev_url: https://github.com/joke2k/faker
   doc_url: https://faker.readthedocs.io
 
