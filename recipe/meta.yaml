@@ -10,7 +10,7 @@ source:
 
 build:
   number: 0
-  skip: True # [py<37]
+  skip: True # [py<36]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - faker = faker.cli:execute_from_command_line
