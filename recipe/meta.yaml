@@ -43,8 +43,6 @@ test:
     - typing-extensions >=3.10.0.1
     - freezegun
     - validators
-  files:
-    - run_test.py
   commands:
     - pip check
     - python -m faker --help
