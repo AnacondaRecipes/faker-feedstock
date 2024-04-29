@@ -40,7 +40,6 @@ test:
   requires:
     - pip
     - pytest
-    - typing-extensions >=3.10.0.1
     - freezegun
     - validators
   commands:
