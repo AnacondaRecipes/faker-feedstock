@@ -1,4 +1,4 @@
-{% set version = "18.9.0" %}
+{% set version = "24.14.1" %}
 
 package:
   name: faker
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/F/Faker/Faker-{{ version }}.tar.gz
-  sha256: 80a5ea1464556c06b98bf47ea3adc7f33811a1182518d847860b1874080bd3c9
+  sha256: 380a3697e696ae4fcf50a93a3d9e0286fab7dfbf05a9caa4421fa4727c6b1e89
 
 build:
   number: 0
-  skip: True # [py<37]
+  skip: True # [py<38]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - faker = faker.cli:execute_from_command_line
@@ -24,9 +24,11 @@ requirements:
   run:
     - python
     - python-dateutil >=2.4
-    - typing-extensions >=3.10.0.1 # [py<38]
+    - typing-extensions >=3.10.0.1
 
 test:
+  source_files:
+    - tests
   imports:
     - faker
     - faker.cli
@@ -37,11 +39,17 @@ test:
     - faker.proxy
   requires:
     - pip
+    - pytest
+    - typing-extensions >=3.10.0.1
+    - freezegun
+    - validators
   files:
     - run_test.py
   commands:
     - pip check
     - python -m faker --help
+    - pytest -vv
+
 about:
   home: https://faker.readthedocs.io
   license: MIT
