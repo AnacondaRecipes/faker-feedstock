@@ -25,6 +25,7 @@ requirements:
   run:
     - python
     - python-dateutil >=2.4
+    - typing_extensions
 
 test:
   source_files:
