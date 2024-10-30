@@ -1,12 +1,13 @@
-{% set version = "25.8.0" %}
+{% set name = "faker" %}
+{% set version = "30.8.1" %}
 
 package:
-  name: faker
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/F/Faker/Faker-{{ version }}.tar.gz
-  sha256: bdec5f2fb057d244ebef6e0ed318fea4dcbdf32c3a1a010766fc45f5d68fc68d
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 93e8b70813f76d05d98951154681180cb795cfbcff3eced7680d963bcc0da2a9
 
 build:
   number: 0
@@ -24,6 +25,7 @@ requirements:
   run:
     - python
     - python-dateutil >=2.4
+    - typing_extensions
 
 test:
   source_files:
