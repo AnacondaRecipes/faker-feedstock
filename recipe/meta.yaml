@@ -1,5 +1,5 @@
 {% set name = "faker" %}
-{% set version = "30.8.1" %}
+{% set version = "37.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 93e8b70813f76d05d98951154681180cb795cfbcff3eced7680d963bcc0da2a9
+  sha256: 77b79e7a2228d57175133af0bbcdd26dc623df81db390ee52f5104d46c010f2f
 
 build:
   number: 0
-  skip: True # [py<38]
+  skip: True # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - faker = faker.cli:execute_from_command_line
@@ -24,8 +24,7 @@ requirements:
     - wheel
   run:
     - python
-    - python-dateutil >=2.4
-    - typing_extensions
+    - python-tzdata
 
 test:
   source_files:
