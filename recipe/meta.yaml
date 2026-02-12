@@ -24,7 +24,8 @@ requirements:
     - wheel
   run:
     - python
-    - python-tzdata
+    # tzdata is now required only on Windows, while remaining optional on other platforms
+    - python-tzdata  # [win]
 
 test:
   source_files:
