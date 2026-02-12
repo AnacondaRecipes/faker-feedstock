@@ -1,17 +1,17 @@
 {% set name = "faker" %}
-{% set version = "37.3.0" %}
+{% set version = "40.1.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 77b79e7a2228d57175133af0bbcdd26dc623df81db390ee52f5104d46c010f2f
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b76a68163aa5f171d260fc24827a8349bc1db672f6a665359e8d0095e8135d30
 
 build:
   number: 0
-  skip: True # [py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - faker = faker.cli:execute_from_command_line
@@ -24,7 +24,8 @@ requirements:
     - wheel
   run:
     - python
-    - python-tzdata
+    # tzdata is now required only on Windows, while remaining optional on other platforms
+    - python-tzdata  # [win]
 
 test:
   source_files:
