@@ -28,9 +28,7 @@ requirements:
     - python-tzdata  # [win]
 
 # test_iban_stdnum is flaky: some nl_BE bank codes not yet in python-stdnum's registry
-{% set tests_to_skip = " or ".join([
-    "test_iban_stdnum",
-]) %}
+{% set tests_to_skip = "test_iban_stdnum" %}
 
 test:
   source_files:
@@ -52,7 +50,7 @@ test:
   commands:
     - pip check
     - python -m faker --help
-    - pytest -vv -k "not ({{ tests_to_skip }})"
+    - pytest -vv -k "not {{ tests_to_skip }}"
 
 about:
   home: https://faker.readthedocs.io
