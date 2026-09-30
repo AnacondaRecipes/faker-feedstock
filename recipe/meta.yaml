@@ -27,8 +27,9 @@ requirements:
     # tzdata is now required only on Windows, while remaining optional on other platforms
     - python-tzdata  # [win]
 
+# test_iban_stdnum is flaky: some nl_BE bank codes not yet in python-stdnum's registry
 {% set tests_to_skip = " or ".join([
-    "test_iban_stdnum",  # flaky: some nl_BE bank codes not yet in python-stdnum's registry
+    "test_iban_stdnum",
 ]) %}
 
 test:
