@@ -1,13 +1,15 @@
 {% set name = "faker" %}
-{% set version = "40.39.0" %}
+{% set version = "40.43.0" %}
+{% set tests_to_skip = "test_iban_stdnum" %}
 
+# test_iban_stdnum is flaky: some nl_BE bank codes not yet in python-stdnum's registry
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 52799ad96fcf92aab2fc96a9e03869bbf1a634300f7cd91c38dbfd51f639f6fa
+  sha256: 02fae4327c03a4a6315e1b428a3878f435bfc276c93435ea349b95c0c9372361
 
 build:
   number: 0
@@ -26,9 +28,7 @@ requirements:
     - python
     # tzdata is now required only on Windows, while remaining optional on other platforms
     - python-tzdata  # [win]
-
-# test_iban_stdnum is flaky: some nl_BE bank codes not yet in python-stdnum's registry
-{% set tests_to_skip = "test_iban_stdnum" %}
+    - tzdata  # [win]
 
 test:
   source_files:
