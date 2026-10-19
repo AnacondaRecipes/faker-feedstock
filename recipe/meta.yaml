@@ -1,10 +1,8 @@
 {% set name = "faker" %}
 {% set version = "40.43.0" %}
-{% set tests_to_skip = "test_iban_stdnum" %}
 
-# test_iban_stdnum is flaky: some nl_BE bank codes not yet in python-stdnum's registry
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -28,7 +26,9 @@ requirements:
     - python
     # tzdata is now required only on Windows, while remaining optional on other platforms
     - python-tzdata  # [win]
-    - tzdata  # [win]
+
+# test_iban_stdnum is flaky: some nl_BE bank codes not yet in python-stdnum's registry
+{% set tests_to_skip = "test_iban_stdnum" %}
 
 test:
   source_files:
